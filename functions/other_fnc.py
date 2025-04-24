@@ -9,23 +9,44 @@ def ex_input():
             break
     return value
 
-# Показать ключи и значения словаря
-def dict_cont_view(dict):
+# Рассчитать количество трат за период времени
+def PFP(value, day_base, day_upper):
+    PFP = value * (day_base + 2 * day_upper)
+    return PFP
+
+# Рассчитать затраты в день из трат за период
+def PFD(PFP, day_base, day_upper):
+    PFD = PFP / (day_base + 2 * day_upper)
+    return PFD
+
+# Показать ключи, значения словаря затрат, посчитать сумму всех затрат
+def dict_cont_summ(dict, day_base, day_upper):
     summary = 0
     for key, values in dict.items():
-        print(f"\n{key}: {values} руб", end="")
-        summary += values
-    print("\n" \
-    "------------------------" \
-    "\nВсего:", summary, "руб")
-    
-    return ""
+        if key != "питание/проезд в день":
+            print(f"\n{key}: {values} руб", end="")
+            summary += values
+        else:
+            print(f"\n{key}: {values} руб/день", end="")
+            Pay_FP = PFP(dict[key], day_base, day_upper)
+            print("\nтраты на питание/проезд за период:", Pay_FP, "руб")
+    summary += Pay_FP
+    return summary
 
-# Заполнение значений словаря
+# Заполнение значений словаря затрат
 def dict_cont_write(dict):
     for key, values in dict.items():
-        if key == "проживание" or key == "кредит/рассрочку":
-            toggle = input(f"\nДобавить плановый расход на {key} за следющий период? \
+        if key == "проживание":
+            toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
+                        \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
+                        \nВведите Y или N: ") 
+            if toggle.lower() == "y":
+                print("Введите сумму Ваших плановых расходов", end="")
+                dict[key] = ex_input()
+            else:
+                continue
+        elif key == "кредит/рассрочка":
+            toggle = input(f"\nДобавить плановое накопление на кредит или рассрочку за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
                         \nВведите Y или N: ") 
             if toggle.lower() == "y":
@@ -42,5 +63,4 @@ def dict_cont_write(dict):
                 dict[key] = ex_input()
             else:
                 continue
-    print(dict_cont_view(dict))
     return dict

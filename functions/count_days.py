@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 
 def write_date():
     # Ввод даты
-    start_date_input = input("\nВведите начальную дату расчета (аванса) в формате дд.мм.гггг: ") 
-    end_date_input = input("Введите конечную дату расчета (зарплаты) в формате дд.мм.гггг: ")
+    start_date_input = input("\nВведите начальную дату в формате дд.мм.гггг: ") 
+    end_date_input = input("Введите конечную дату в формате дд.мм.гггг: ")
     # Преобразуем значения, проработаем исключения
     try:
         start_date = datetime.strptime(start_date_input,"%d.%m.%Y").date()
@@ -16,6 +16,7 @@ def write_date():
         now = datetime.now()
         start_date = now.date()
         end_date = now.date() + timedelta(days=15)
+        # Вытащить данные. перетасовать. (Y.m.d) -> (d.m.Y)
         print(f"Будет выполнен расчет на период: {start_date} - {end_date}")
     # Выводим значения функции
     return start_date, end_date
@@ -39,8 +40,6 @@ def between():
             start_date, end_date = write_date()
         else:
             break
-    # Проверка полученных данных
-   
     # Инициализируем счетчики
     base_expence_days = 0
     upper_expence_days = 0
