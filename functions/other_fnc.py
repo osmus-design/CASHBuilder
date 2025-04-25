@@ -64,3 +64,7 @@ def dict_cont_write(dict:dict) -> dict:
             else:
                 continue
     return dict
+
+def end_key():
+    input("\nНажми Enter чтобы закончить")
+    return None

@@ -2,7 +2,7 @@
 
 # Импортируем вспомогательные библиотеки
 import count_days
-from other_fnc import ex_input, PFD, PFP
+from other_fnc import ex_input, PFD, PFP, end_key
 from datetime import date 
 
 print("Введи плановую сумму ежедневных трат", end="")
@@ -30,4 +30,4 @@ else:
     print("\nТраты выше плановых\
           \nНужно организовать траты в день на уровне:", plan_PFD, "руб")
 
-end = input("\nНажми Enter чтобы закончить")
+end = end_key()
