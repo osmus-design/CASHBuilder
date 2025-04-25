@@ -20,7 +20,7 @@ def PFD(PFP: int, day_base: int, day_upper: int) -> int:
     return PFD
 
 # Показать ключи, значения словаря затрат, посчитать сумму всех затрат
-def dict_cont_summ(dict, day_base, day_upper):
+def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
     summary = 0
     for key, values in dict.items():
         if key != "питание/проезд в день":
@@ -34,7 +34,7 @@ def dict_cont_summ(dict, day_base, day_upper):
     return summary
 
 # Заполнение значений словаря затрат
-def dict_cont_write(dict):
+def dict_cont_write(dict:dict) -> dict:
     for key, values in dict.items():
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
