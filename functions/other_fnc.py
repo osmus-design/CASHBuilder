@@ -4,23 +4,23 @@ def ex_input():
         try:
             value = int(input(": "))
         except ValueError:
-            print("Вы ввели неправильные данные. Введите число без сторонних символов", end="")
+            print("Введены неправильные данные. Введи число без сторонних символов", end="")
         else:
             break
     return value
 
-# Рассчитать количество трат за период времени
-def PFP(value, day_base, day_upper):
+# Рассчитать количество трат за период времени. Payment for period
+def PFP(value: int, day_base: int, day_upper: int) -> int:
     PFP = value * (day_base + 2 * day_upper)
     return PFP
 
-# Рассчитать затраты в день из трат за период
-def PFD(PFP, day_base, day_upper):
+# Рассчитать затраты в день из трат за период. Payment for day
+def PFD(PFP: int, day_base: int, day_upper: int) -> int:
     PFD = PFP / (day_base + 2 * day_upper)
     return PFD
 
 # Показать ключи, значения словаря затрат, посчитать сумму всех затрат
-def dict_cont_summ(dict, day_base, day_upper):
+def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
     summary = 0
     for key, values in dict.items():
         if key != "питание/проезд в день":
@@ -34,32 +34,32 @@ def dict_cont_summ(dict, day_base, day_upper):
     return summary
 
 # Заполнение значений словаря затрат
-def dict_cont_write(dict):
+def dict_cont_write(dict:dict) -> dict:
     for key, values in dict.items():
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведите Y или N: ") 
+                        \nВведи Y или N: ") 
             if toggle.lower() == "y":
-                print("Введите сумму Ваших плановых расходов", end="")
+                print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
             else:
                 continue
         elif key == "кредит/рассрочка":
             toggle = input(f"\nДобавить плановое накопление на кредит или рассрочку за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведите Y или N: ") 
+                        \nВведи Y или N: ") 
             if toggle.lower() == "y":
-                print("Введите сумму Ваших плановых расходов", end="")
+                print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
             else:
                 continue
         else:    
             toggle = input(f"\nДобавить плановый расход на {key} за следющий период? \
                         \nЗначение по умолчанию = {values} \
-                        \nВведите Y или N: ") 
+                        \nВведи Y или N: ") 
             if toggle.lower() == "y":
-                print("Введите сумму Ваших плановых расходов", end="")
+                print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
             else:
                 continue
