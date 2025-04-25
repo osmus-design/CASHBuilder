@@ -23,7 +23,7 @@ income = other_fnc.ex_input()
 wastes = other_fnc.dict_cont_write(wastes)
 
 # Вызов функции вычисления промежутка между датами, введенными пользователем и запись в переменные
-base_expence_days, upper_expence_days = count_days.between()
+base_expence_days, upper_expence_days = count_days.between(None, None)
 
 # Вывод на экран значение всех затрат их сумму
 all_wastes = other_fnc.dict_cont_summ(wastes, base_expence_days, upper_expence_days)
