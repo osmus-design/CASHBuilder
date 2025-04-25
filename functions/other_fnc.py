@@ -9,12 +9,12 @@ def ex_input():
             break
     return value
 
-# Рассчитать количество трат за период времени
+# Рассчитать количество трат за период времени. Payment for period
 def PFP(value, day_base, day_upper):
     PFP = value * (day_base + 2 * day_upper)
     return PFP
 
-# Рассчитать затраты в день из трат за период
+# Рассчитать затраты в день из трат за период. Payment for day
 def PFD(PFP, day_base, day_upper):
     PFD = PFP / (day_base + 2 * day_upper)
     return PFD
