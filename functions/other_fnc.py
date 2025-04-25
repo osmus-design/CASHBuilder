@@ -6,7 +6,7 @@ def ex_input():
         except ValueError:
             print("Введены неправильные данные. Введи число без сторонних символов", end="")
         else:
-            print("")
+            #print("")
             break
     return value
 
@@ -30,7 +30,7 @@ def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
         else:
             print(f"\n{key}: {values} руб/день", end="")
             Pay_FP = PFP(dict[key], day_base, day_upper)
-            print("\nтраты на питание/проезд за период:", Pay_FP, "руб")
+            print("\nтраты на питание/проезд за период:", Pay_FP, "руб", end="")
     summary += Pay_FP
     return summary
 
@@ -40,7 +40,7 @@ def dict_cont_write(dict:dict) -> dict:
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи Y или N: ") 
+                        \nВведи Y или нажми Enter: ") 
             if toggle.lower() == "y":
                 print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
@@ -49,7 +49,7 @@ def dict_cont_write(dict:dict) -> dict:
         elif key == "кредит/рассрочка":
             toggle = input(f"\nДобавить плановое накопление на кредит или рассрочку за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи Y или N: ") 
+                        \nВведи Y или нажми Enter: ") 
             if toggle.lower() == "y":
                 print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
@@ -58,7 +58,7 @@ def dict_cont_write(dict:dict) -> dict:
         else:    
             toggle = input(f"\nДобавить плановый расход на {key} за следющий период? \
                         \nЗначение по умолчанию = {values} \
-                        \nВведи Y или N: ") 
+                        \nВведи Y или нажми Enter: ") 
             if toggle.lower() == "y":
                 print("Введи сумму твоих плановых расходов", end="")
                 dict[key] = ex_input()
@@ -67,5 +67,13 @@ def dict_cont_write(dict:dict) -> dict:
     return dict
 
 def end_key():
-    input("\nНажми Enter чтобы закончить\n\n")
+    input("\nНажми Enter чтобы закончить")
+    return None
+
+def separator():
+    print("\n------------------------------------------\n")
+    return None
+
+def separator_line():
+    print("\n___________________________________________\n")
     return None

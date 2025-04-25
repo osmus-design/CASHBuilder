@@ -2,7 +2,7 @@
 
 # Импортируем вспомогательные библиотеки
 from functions import count_days
-from functions.other_fnc import ex_input, PFD, PFP, end_key
+from functions.other_fnc import ex_input, PFD, PFP, end_key, separator_line
 from datetime import date 
 
 def cource():
@@ -31,5 +31,6 @@ def cource():
         print("\nТраты выше плановых\
             \nНужно организовать траты в день на уровне:", plan_PFD, "руб")
 
-    end = end_key()
+    end_key()
+    separator_line()
     return None
