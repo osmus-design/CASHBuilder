@@ -6,6 +6,7 @@ def ex_input():
         except ValueError:
             print("Введены неправильные данные. Введи число без сторонних символов", end="")
         else:
+            print("")
             break
     return value
 
@@ -66,5 +67,5 @@ def dict_cont_write(dict:dict) -> dict:
     return dict
 
 def end_key():
-    input("\nНажми Enter чтобы закончить")
+    input("\nНажми Enter чтобы закончить\n\n")
     return None
