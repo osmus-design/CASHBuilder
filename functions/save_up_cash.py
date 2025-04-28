@@ -17,8 +17,8 @@ def cash():
     }
 
     # Ручной ввод значения полученной зарплаты
-    print("Введи сумму твоей зарплаты", end="")
-    income = other_fnc.ex_input()
+    print("Введи сумму твоего аванса", end="")
+    income = other_fnc.ex_input(None)
     # Заполнение словаря с затратами
     wastes = other_fnc.dict_cont_write(wastes)
 
@@ -28,7 +28,7 @@ def cash():
     # Вывод на экран значение всех затрат их сумму
     all_wastes = other_fnc.dict_cont_summ(wastes, base_expence_days, upper_expence_days)
     other_fnc.separator()
-    print("Всего:", all_wastes, "руб")
+    print("Все траты за период:", all_wastes, "руб")
 
     # Считаем общую сумму регулярных расходов за период
     payment_for_period = other_fnc.PFP(wastes["питание/проезд в день"], base_expence_days, upper_expence_days)

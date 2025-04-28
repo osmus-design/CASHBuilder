@@ -1,12 +1,15 @@
 # Обработка исключения неправильного ввода данных
-def ex_input():
+def ex_input(value):
     while True:
         try:
-            value = int(input(": "))
+            if value == None:
+                value = int(input(": "))
+            else:
+                value = int(value)
         except ValueError:
             print("Введены неправильные данные. Введи число без сторонних символов", end="")
+            value = ex_input(None)
         else:
-            #print("")
             break
     return value
 
@@ -40,28 +43,25 @@ def dict_cont_write(dict:dict) -> dict:
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи Y или нажми Enter: ") 
-            if toggle.lower() == "y":
-                print("Введи сумму твоих плановых расходов", end="")
-                dict[key] = ex_input()
+                        \nВведи другое значение или нажми Enter: ") 
+            if toggle != '':
+                dict[key] = ex_input(toggle)
             else:
                 continue
         elif key == "кредит/рассрочка":
             toggle = input(f"\nДобавить плановое накопление на кредит или рассрочку за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи Y или нажми Enter: ") 
-            if toggle.lower() == "y":
-                print("Введи сумму твоих плановых расходов", end="")
-                dict[key] = ex_input()
+                        \nВведи другое значение или нажми Enter: ") 
+            if toggle != '':
+                dict[key] = ex_input(toggle)
             else:
                 continue
         else:    
             toggle = input(f"\nДобавить плановый расход на {key} за следющий период? \
                         \nЗначение по умолчанию = {values} \
-                        \nВведи Y или нажми Enter: ") 
-            if toggle.lower() == "y":
-                print("Введи сумму твоих плановых расходов", end="")
-                dict[key] = ex_input()
+                        \nВведи другое значение или нажми Enter: ") 
+            if toggle != '':
+                dict[key] = ex_input(toggle)
             else:
                 continue
     return dict

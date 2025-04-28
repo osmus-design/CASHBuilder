@@ -7,10 +7,10 @@ from datetime import date
 
 def cource():
     print("Введи плановую сумму ежедневных трат", end="")
-    plan_PFD = ex_input()
+    plan_PFD = ex_input(None)
 
     print("Введи сколько осталось средств на еду и транспорт на данный момент", end="")
-    remains = ex_input()
+    remains = ex_input(None)
 
     # Подсчет количества дней базовых и повышенных трат
     start_date = date.today()

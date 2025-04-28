@@ -9,7 +9,7 @@ while True:
           \n1. Отложить деньги и посчитать траты\
           \n2. Проверить моё соответствие курсу трат\
           \n\nВведи цифру, нажми Enter", end="")
-    toggle = other_fnc.ex_input()
+    toggle = other_fnc.ex_input(None)
     if toggle == 1:
         other_fnc.separator_line()
         save_up_cash.cash()
