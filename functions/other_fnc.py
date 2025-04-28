@@ -9,8 +9,10 @@ def ex_input():
             break
     return value
 
-# Рассчитать количество трат за период времени. Payment for period
 def PFP(value: int, day_base: int, day_upper: int) -> int:
+    """
+    Рассчитать количество трат за период времени. Payment for period
+    """
     PFP = value * (day_base + 2 * day_upper)
     return PFP
 
