@@ -1,5 +1,8 @@
-# Обработка исключения неправильного ввода данных
-def ex_input(value):
+
+def ex_input(value: int | None) -> int:
+    """
+    Обработка исключения неправильного ввода данных 
+    """
     while True:
         try:
             if value == None:
@@ -13,18 +16,25 @@ def ex_input(value):
             break
     return value
 
-# Рассчитать количество трат за период времени. Payment for period
+
 def PFP(value: int, day_base: int, day_upper: int) -> int:
+    """
+    Рассчитать количество трат за период времени. Payment for period
+    """
     PFP = value * (day_base + 2 * day_upper)
     return PFP
 
-# Рассчитать затраты в день из трат за период. Payment for day
 def PFD(PFP: int, day_base: int, day_upper: int) -> int:
+    """
+    Рассчитать затраты в день из трат за период. Payment for day
+    """
     PFD = PFP / (day_base + 2 * day_upper)
     return PFD
 
-# Показать ключи, значения словаря затрат, посчитать сумму всех затрат
 def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
+    """
+    Показать ключи, значения словаря затрат, посчитать сумму всех затрат
+    """
     summary = 0
     for key, values in dict.items():
         if key != "питание/проезд в день":
@@ -37,8 +47,10 @@ def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
     summary += Pay_FP
     return summary
 
-# Заполнение значений словаря затрат
 def dict_cont_write(dict:dict) -> dict:
+    """
+    Заполнение значений словаря затрат
+    """
     for key, values in dict.items():
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
@@ -71,9 +83,15 @@ def end_key():
     return None
 
 def separator():
+    """
+    прерывистая линия
+    """
     print("\n------------------------------------------\n")
     return None
 
 def separator_line():
+    """
+    сплошная линия
+    """
     print("\n___________________________________________\n")
     return None
