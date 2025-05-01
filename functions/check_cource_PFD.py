@@ -3,7 +3,8 @@
 # Импортируем вспомогательные библиотеки
 from functions import count_days
 from functions.other_fnc import ex_input, PFD, PFP, end_key, separator_line
-from datetime import date 
+from datetime import date
+
 
 def cource():
     print("Введи плановую сумму ежедневных трат", end="")
@@ -15,7 +16,8 @@ def cource():
     # Подсчет количества дней базовых и повышенных трат
     start_date = date.today()
     start_date = start_date.strftime("%d.%m.%Y")
-    base_expence_days, upper_expence_days = count_days.between(start_date, None)
+    base_expence_days, upper_expence_days = count_days.between(
+        start_date, None)
 
     # Вычисляем плановые траты за период
     plan_PFP = PFP(plan_PFD, base_expence_days, upper_expence_days)

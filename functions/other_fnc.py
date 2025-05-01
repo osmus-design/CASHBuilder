@@ -1,5 +1,5 @@
 
-def ex_input(value: int | None) -> int:
+def ex_input(value: int | None = None) -> int:
     """
     Обработка исключения неправильного ввода данных 
     """
@@ -10,7 +10,8 @@ def ex_input(value: int | None) -> int:
             else:
                 value = int(value)
         except ValueError:
-            print("Введены неправильные данные. Введи число без сторонних символов", end="")
+            print(
+                "Введены неправильные данные. Введи число без сторонних символов", end="")
             value = ex_input(None)
         else:
             break
@@ -24,12 +25,14 @@ def PFP(value: int, day_base: int, day_upper: int) -> int:
     PFP = value * (day_base + 2 * day_upper)
     return PFP
 
+
 def PFD(PFP: int, day_base: int, day_upper: int) -> int:
     """
     Рассчитать затраты в день из трат за период. Payment for day
     """
     PFD = PFP / (day_base + 2 * day_upper)
     return PFD
+
 
 def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
     """
@@ -47,7 +50,8 @@ def dict_cont_summ(dict: dict, day_base: int, day_upper: int) -> int:
     summary += Pay_FP
     return summary
 
-def dict_cont_write(dict:dict) -> dict:
+
+def dict_cont_write(dict: dict) -> dict:
     """
     Заполнение значений словаря затрат
     """
@@ -55,7 +59,7 @@ def dict_cont_write(dict:dict) -> dict:
         if key == "проживание":
             toggle = input(f"\nДобавить плановое накопление на проживание за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи другое значение или нажми Enter: ") 
+                        \nВведи другое значение или нажми Enter: ")
             if toggle != '':
                 dict[key] = ex_input(toggle)
             else:
@@ -63,24 +67,26 @@ def dict_cont_write(dict:dict) -> dict:
         elif key == "кредит/рассрочка":
             toggle = input(f"\nДобавить плановое накопление на кредит или рассрочку за следющий период? \
                         \nЗначение по умолчанию = {values} (половина от суммы месячной платы) \
-                        \nВведи другое значение или нажми Enter: ") 
+                        \nВведи другое значение или нажми Enter: ")
             if toggle != '':
                 dict[key] = ex_input(toggle)
             else:
                 continue
-        else:    
+        else:
             toggle = input(f"\nДобавить плановый расход на {key} за следющий период? \
                         \nЗначение по умолчанию = {values} \
-                        \nВведи другое значение или нажми Enter: ") 
+                        \nВведи другое значение или нажми Enter: ")
             if toggle != '':
                 dict[key] = ex_input(toggle)
             else:
                 continue
     return dict
 
+
 def end_key():
     input("\nНажми Enter чтобы закончить")
     return None
+
 
 def separator():
     """
@@ -88,6 +94,7 @@ def separator():
     """
     print("\n------------------------------------------\n")
     return None
+
 
 def separator_line():
     """
