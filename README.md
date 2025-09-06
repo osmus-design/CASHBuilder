@@ -1,2 +1,2 @@
 # CASHBuilder
-your financial literacy assistant
+Your financial literacy assistant with telegram BOT
